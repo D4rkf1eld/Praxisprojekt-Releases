@@ -1,0 +1,299 @@
+% \setcounter{section}{0}
+
+\section*{Einleitung}
+
+    \subsection*{Vorwort}
+
+    \subsection*{Problemstellung}
+
+    \subsection*{Ziele des Praxisprojektes}
+
+        \annotdone{Mir einen Einblick in den Ablauf der industriellen Produktion von Leiterkarten geben}
+
+        \noindent
+        \annotdone{Über verschiedene Testmöglichkeiten informieren}
+
+        \noindent
+        \annotdone{R\&S und SPEA dokumentieren}
+
+        \noindent
+        \annotdone{Maschinen kennenlernen}
+
+            \annotdone{Gemeinsamkeiten und Unterschiede der Tester erfahren}
+
+            \annotdone{Mögliche Migrationsstrategien stellen sich dabei heraus}
+
+    \subsection*{Aufbau des Praxisprojektes}
+
+\section*{Die Trützschler Group}
+
+    \subsection*{Allgemeines}
+
+        \annotdone{Jetzigen Text mit etwas geschichtlichem Hintergrund füllen}
+
+    \subsection*{Geschäftszweige}
+
+        \annot{Mit Bildern füllen}
+
+    \subsection*{Besonderheiten}
+
+        \annotdone{Fast alles wird selber hergestellt}
+
+        \annotdone{Hochqualitative Leiterkartenproduktion in DEUTSCHLAND}
+
+\section{Prüfverfahren in der Elektronikfertigung}
+
+    \annot{Kriterien für die Testverfahren siehe blunk-electronic oder Kärger}
+
+    \subsection*{Notwendigkeit der Prüfverfahren}
+
+        \annot{Statistik ansprechen, wieviele Leiterkarten gebaut werden}
+
+            \annot{Sagen wieviele davon durchfallen}
+
+        \noindent
+        \annotdone{Grund ist die Qualitätssicherung, Kostenminimierung und Sicherheit für die Inbetriebnahme}
+
+            \indent \annotdone{Durch das Testen können außerdem Verbesserungen an dem Produkt vorgenommen werden}
+
+            \indent \annotdone{Zum Punkt Kostenminimierung: Rule Of Ten oder Kärger die $10^{s}$ Formel.}
+
+            \indent \annotdone{Das ganze mit Minisections gliedern}
+
+    \subsection*{Fehler}
+
+        \annotdone{Fehler die auftreten können (Fehlerarten/Fehlertypen) und dann sagen, dass das Testen sinnvoll ist}
+
+            \annotdone{Z.B. kann ein Widerstand falsch sein/Bauteilwert falsch sein}
+
+                \indent \indent \annotdone{Würde man erstmal so nicht drauf kommen}
+
+        \annotdone{Bei BGA ist ein Pin nicht richtig verlötet}
+
+            \indent \indent \annotdone{Würde man erstmal so nicht drauf kommen}
+
+    \subsection{Phasen des Herstellungsprozesses}
+
+        \annot{\notsure{Stiny Buch hier nützlich?}}
+
+        \annot{\notsure{Sicherheitskritische Tests, z.B. Schutz vor Berührungen von 230V garantieren; Hierzu Normen o.ä. finden}}
+
+        \noindent
+        \annot{Wann muss/sollte getestet werden}
+
+            \annot{Hierzu die Präsentation von blunk-electronic!}
+        
+        \noindent
+        \annot{Unbestückte Leiterkarte/PCB heißt dann PCBA (Printed Circuit Board Assembly)}
+
+        \noindent
+        \annot{Von der Planung bis zur fertigen Karte}
+
+            \annot{\notsure{Vielleicht als Flussdiagramm?}}
+
+            \annot{Bestückungsreihenfolge}
+
+                \indent \indent \annot{Hinsichtlich der Bauelemente}
+
+            \annot{Verschiedene Testverfahren, die durchlaufen werden}
+
+                \indent \indent \annot{Von dem ICT mit Kurzschlusstest (sehr am Anfang) bis hin zur Wärmekammer}
+
+                    \indent \indent \indent \annot{\notsure{Vielleicht als Flussdiagramm?}}
+
+        \subsubsection{Entwicklungsphase}
+
+            \annot{Design For Test anführen}
+
+            \annot{Warum ist Design For Test so wichtig?}
+
+            \noindent
+            \annot{Wie designed man for Test?}
+
+            \noindent
+            \annot{Grundlegende Regeln aufführen}
+
+                \annot{Weitere und speziellere Regeln bei dem jeweiligen Verfahren nennen}
+
+            \noindent
+            \annot{Unter dem Aspekt, dass einige Leiterkarten nicht ICT fähig sind}
+
+                \indent \indent \annot{Hohe Bauteile}
+
+                \indent \indent \annot{Bottom Bestücktheit}
+
+                \indent \indent \annot{Wie wird mit solchen Boards verfahren? \notsure{Flying Probe?}}
+
+        \subsubsection{Produktionsphase}
+
+        \subsubsection{Verifikationsphase}
+
+            \annot{Testen der Leiterkarten}
+
+    \subsection{Optische Prüfverfahren}
+
+        \annot{Man kann die Polarität von Elkos nicht messtechnisch bestimmen, daher ist das hier sinnvoll!}
+
+        \subsubsection{Manuelle Optische Inspektion}
+
+            \annot{Design For Test}
+
+        \subsubsection{Automatische Optische Inspektion}
+
+            \annot{Design For Test}
+
+        \subsubsection{Röntgeninspektion}
+
+            \annot{Design For Test}
+
+    \subsection{Elektrische Prüfverfahren}
+
+        \subsubsection{In Circuit Testing}
+
+            \annot{Manufacturing Defect Analysis (MDA)}
+
+            \annot{Prüfparameter der Bauelemente \refneeded{-> (Kärger/K4SK1)}}
+
+            \noindent
+            \annot{Design-for-Testability}
+                \notsure{Nochmals anschneiden und spezifische Werte füllen?}
+
+            \noindent
+            \annot{Adapter}
+
+                \annot{Single Bay oder Dual Bay}
+
+                \annot{Nadelarten}
+
+            \noindent
+            \annot{Single Core und Multi Core Systeme}
+
+            \annot{Design For Test}
+
+        \subsubsection{Flying Probe Testing}
+
+            \annot{Design For Test}
+
+        \subsubsection{Funktionstest}
+
+            \annot{Eigentlich ist hierfür doch ein OBP (On Board Programming) mit \notsure{ISP?} nötig?}
+
+            \noindent
+            \annot{Design For Test}
+
+        \subsubsection{Build in self Test}
+
+            \annot{Eigentlich ist hierfür doch ein OBP (On Board Programming) mit \notsure{ISP?} nötig?}
+
+            \noindent
+            \annot{Design For Test}
+
+    \subsection{Messstrategien}
+
+        \subsubsection{Analoger Test}
+
+            \annot{Wie kann man die Kapazität/andere Bauteile messen}
+
+            \noindent
+            \annot{\notsure{Vectorless?}}
+
+            \noindent
+            \annot{\notsure{Hier Open Pin Test als Alternative für den Digitaltest anführen?}}
+
+                \indent \annot{\notsure{Digitaltest benötigt ja hohe Schaltfrequenzen und perfektes Timing}}
+
+                \indent \annot{\notsure{Werden feste Testmuster (bekannte Ein- und Ausgabe) benötigt?}}
+        
+            \noindent
+            \annot{Maßnahmen zur Messfehlerreduzierung}
+
+                \annot{Guarding}
+
+                    \annot{Laut T.W. gibt es hierfür mehrere Möglichkeiten}
+
+                \annot{Vierdrahtmessung/Kelvinmessung}
+
+                \annot{\notsure{Stromrichtige Messung}}
+
+                \annot{\notsure{Spannungsrichtige Messung}}
+
+        \subsubsection{Digitaler Test}
+
+            \annot{\notsure{Vector Test?}}
+
+            \noindent
+            \annot{\notsure{Bei Geräte die keinen Boundary Scan unterstützen?}}
+
+        \subsubsection{Mixed Signal Testing}
+
+        \subsubsection{Junction Scan/Open Pin Scan}
+
+        \subsubsection{Boundary Scan (JTAG)}
+
+            \annot{Verschiedene IEEE Standards nennen von .1 bis .4 analog boundary scan}
+            
+            \noindent
+            \annot{Boundary Scan Descriptive Language}
+
+\section{Praxisbeispiel: Rohde \& Schwarz TSAS}
+
+    \subsection{Grundlegende Informationen}
+
+    \subsection{Aufbau}
+
+        \annot{Augat Pylon Interface}
+
+    \subsection{Funktionsweise}
+
+    \subsection{Technische Spezifikationen}
+
+        \subsubsection{Module}
+
+        \subsubsection{Schnittstellen}
+
+    \subsection{Besondere Merkmale}
+
+    \subsection{Probleme}
+
+\section{Praxisbeispiel: SPEA 3030 Compact}
+
+    \subsection{Grundlegende Informationen}
+
+    \subsection{Aufbau}
+
+        \annot{Augat Pylon Interface}
+
+    \subsection{Funktionsweise}
+
+    \subsection{Technische Spezifikationen}
+
+        \subsubsection{Module}
+
+        \subsubsection{Schnittstellen}
+
+    \subsection{Besondere Merkmale}
+
+        \annot{Stray Capacitance Ausgleich z.B.}
+
+    \subsection{Probleme}
+
+\section{Kompatibilität und mögliche Verfahrenswege}
+
+    \annot{Vorschläge, wie die Migration erfolgen könnte (in der BA prüfen und sich entscheiden?)}
+
+    \noindent
+    \annot{Inkompatibles}
+
+        \annot{Wie könnte man damit verfahren (in der BA ansprechen und einen Weg raussuchen?)}
+
+\section{Zusammenfassung}
+
+\section{Ausblick}
+
+    \noindent
+    \annot{Ausblick über allgemeine Testverfahren}
+
+    \noindent
+    \annot{\notsure{Ausblick über die Verfahrenswege der Migration}}
+
+\section{Fazit}

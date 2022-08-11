@@ -1,0 +1,280 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Pakete %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \documentclass[11pt]{scrartcl} % Verwende die Schriftgröße 11pt und die article KOMA Klasse.
+    \usepackage[ngerman]{babel} % ngerman: Neue deutsche Rechtschreibung (Silbentrennung usw.) | babel: Ändert die Spracheinstellung
+    \usepackage[utf8]{inputenc} % inputenc in UTF-8: Stellt die Zeicheneingabe für Umlaute (im Editor) sicher.
+    \usepackage[T1]{fontenc} % T1: Zeichenmenge für westeuropäische Länder | fontenc: Angepasste Zeichendarstellung in der PDF           
+    \usepackage{lmodern} % Verwende die lmodern-Schriftart.
+    \usepackage{layout} % Paket um bestimmte Längen im Dokument zur Ausrichtung zu untersuchen.
+    \usepackage{a4wide} % Benutze eine breitere Darstellung auf einer DIN-A4 Seite.
+    \usepackage{siunitx} % Paket, das einige SI-Einheiten mitliefert und die Darstellung ermöglicht.
+    \usepackage{amssymb} % Paket, das mathematische Befehle enthält.
+    \usepackage{graphicx} % Paket für das Einbinden von Grafiken verschiedener Arten.
+    % \usepackage{fancyhdr} % Erlaubt das Erzeugen von eigenen Headern und Footern. (Backup)
+    \usepackage[headsepline = 0.3pt]{scrlayer-scrpage} % Erlaubt das Erzeugen von eigenen Headern und Footern.
+    \usepackage[printonlyused, withpage]{acronym} % Paket zur Verwaltung und Erzeugung von Abkürzungen. printonlyused: Zeige nur im Dokument benutzte Abkürzungen in dem Abkürzungsverzeichnis an | footnote: Zeigt die Bedeutung der Abkürzung in der Fußzeile an | withpage: Zeigt die Seitenzahl an, wo die Abkürzung zum ersten Mal verwendet wird
+    \usepackage[backend = biber, defernumbers = false, style = ieee, citestyle = ieee, dashed = false]{biblatex} % Paket um die Literaturverwaltung zu ermöglichen. backend = biber: Benutzer das backend Programm biber, das die Bibliography ausliest und verarbeitet | defernumbers = false: Deaktiviere eine alternative Aufzählung, die bei der Gliederung der Literatur in Literaturarten verwendet werden muss | style und citestyle: Verwende den IEEE-Zitationsstil | dashed = false: Deaktiviert das Hinzufügen von ----- bei einer Autorendoppellung
+    \usepackage[babel, german = quotes]{csquotes} % Paket, das eine direkte Zitierung möglich macht.
+    % \usepackage[hidelinks]{hyperref} % Fügt Hyperlinks (ohne Box) zum Dokument hinzu (Literatur schnell finden).
+    \usepackage{hyperref} % Fügt Hyperlinks zum Dokument hinzu (Literatur schnell finden).
+    \usepackage{booktabs} % Das Paket wird hier zum Hinzufügen von Linien in Tabellen/Matrizen verwendet.
+    \usepackage{tocloft} % Paket zur Modifikation der Table of Contents, List of Figures und List of Tables.
+    \usepackage{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------- Prototypisches -----------------------------%
+    % Kennzeichnungsbefehle
+        % Anmerkungen kennzeichnen
+            \definecolor{annotation}{RGB}{0, 192, 223}
+            \newcommand{\annot}[1]{\textcolor{annotation}{\textsc{\#T:}} \textbf{#1}}
+
+            % \definecolor{annotation}{RGB}{255, 255, 255}
+            % \newcommand{\annot}[1]{\textcolor{annotation}{#1}}
+
+        % Anmerkung bearbeitet
+            \definecolor{annotationdone}{RGB}{0, 192, 0}
+            \newcommand{\annotdone}[1]{\textcolor{annotationdone}{\textsc{\#TD:}} \textbf{#1}}
+
+            % \definecolor{annotationdone}{RGB}{255, 255, 255}
+            % \newcommand{\annotdone}[1]{\textcolor{annotationdone}{#1}
+            
+        % Fehlendes Zitat
+            \definecolor{citneeded}{RGB}{255, 0, 127}
+            \newcommand{\citneeded}[1]{\textcolor{citneeded}{\textsc{\#ZF:}} \textbf{#1}}      
+
+            % \definecolor{citneeded}{RGB}{255, 255, 255}
+            % \newcommand{\citneeded}[1]{\textcolor{citneeded}{#1}} 
+
+        % Fehlende Referenz
+            \definecolor{refneeded}{RGB}{255, 0, 127}
+            \newcommand{\refneeded}[1]{\textcolor{refneeded}{\textsc{\#RF:}} \textbf{#1}}
+
+            % \definecolor{refneeded}{RGB}{255, 255, 255}
+            % \newcommand{\refneeded}[1]{\textcolor{refneeded}{#1}}
+
+        % Debug Markierung
+            \definecolor{dbg1}{RGB}{255, 127, 0}
+            \newcommand{\dbg}[1]{\textcolor{dbg1}{\textsc{\#D:}} \textbf{#1}}
+
+            % \definecolor{dbg1}{RGB}{255, 255, 255}
+            % \newcommand{\dbg}[1]{\textcolor{dbg1}{#1}}
+        
+        % Bin-mir-unsicher-Markierung
+            \definecolor{notsure}{RGB}{255, 64, 0}
+            \newcommand{\notsure}[1]{\textcolor{notsure}{\textit{#1}}}
+
+            % \definecolor{notsure}{RGB}{255, 255, 255}
+            % \newcommand{\notsure}[1]{\textcolor{notsure}{\textsc{#1}}}
+%----------------------------- Prototypisches -----------------------------%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Längen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Bilder
+        \newlength{\imgWidth} % Hier wird eine eigene Länge für die Bilderbreite erzeugt.
+        \setlength{\imgWidth}{1.0\textwidth} % Setze die Bilderbreite zu einem vielfachen der Textbreite.
+
+    % Mini-Unterpunkte
+        % \newlength{\minisectionSpacing} % Deprecated
+        % \setlength{\minisectionSpacing}{6pt} % Deprecated
+
+    % Fontsize aus der Präambel grabben
+        \makeatletter
+        \newcommand*\fsize{\dimexpr\f@size pt\relax}
+        \makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Konfiguration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Header (scrlayer-scrpage)
+        \pagestyle{scrheadings} % Verwende den voreingestellten Seitenstil
+        \setkomafont{pageheadfoot}{\normalfont} % Normalfont Schriftart im Header und Footer
+        \clearpairofpagestyles % Lösche die Header und Footer Voreinstellungen
+        \automark{subsection} % Setze den Automark zu der jeweiligen Section
+        \renewcommand*{\sectionmarkformat}{} % Nummer der Section weglassen
+        \ihead{\headmark} % Zeige auf der linken Seite die aktuelle Section an
+        \chead{} % Praxisprojekt soll mittig im Header erscheinen
+        \ohead{\pagemark} % Seitenzahl auf der rechten Seite im Header
+
+    % Bibliographie
+        % Einstellung der Sortierung und der anzuzeigenden Inhalte
+            \ExecuteBibliographyOptions{
+                sorting = nyt, % Sortierung der Elemente innerhalb einer Quelle im Literaturverzeichnis.
+                bibwarn = true, % Zeige die BibLaTeX-Warnungen im Debug an.
+                isbn = false, % Zeige keine ISBNs an.
+                url = false, % Blende URLs für Quellen aus, die nicht Webseiten sind.
+                doi = false % Blende die DOI aus.
+            }
+
+        % Datumswiedergabe für Webseiten bei unbekanntem Datum
+            \DeclareSourcemap{
+                \maps[datatype=bibtex]{
+                    \map[overwrite=false]{
+                        \step[fieldset=year,fieldvalue={o.D.},final] % Überschreibe das Feld "Jahr" für Quellen, bei denen ich kein Veröffentlichungsdatum finden konnte.
+                    }
+                }
+            }
+
+        % Bibliographie einbinden
+            \addbibresource{bibliography.bib}
+
+    % Einrückung der List of Figures
+        \setlength{\cftfigindent}{0pt} % Die Einrückung des Abbildungsverzeichnisses ist nun 0pt (nicht vorhanden).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Mini-Unterpunkte
+        % \newcommand{\minisection}[1]{\vspace{\minisectionSpacing}\noindent\leavevmode\noindent\textbf{#1}\\[\minisectionSpacing]} % Deprecated
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document} % Dokumentenanfang. Im folgenden werden nun nur noch die einzelnen Kapitel/Texte eingebunden.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Dokumentenbeginn %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Konfiguration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Beginne mit römischen Seitenzahlen
+        \renewcommand{\thepage}{\Roman{page}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    % Deckblatt
+        \input{Kapitel/Deckblatt/Deckblatt.tex}
+
+    % Abstract
+        \input{Kapitel/Abstract/Abstract.tex}
+
+    \newpage
+    
+    % Inhaltsverzeichnis
+        \input{Kapitel/Inhaltsverzeichnis/Inhaltsverzeichnis.tex}
+
+    % Abbildungsverzeichnis
+        \input{Kapitel/Abbildungsverzeichnis/Abbildungsverzeichnis.tex}
+
+    % Tabellenverzeichnis
+        \input{Kapitel/Tabellenverzeichnis/Tabellenverzeichnis.tex}
+
+    % Abkürzungsverzeichnis
+        \input{Kapitel/Abkürzungsverzeichnis/Abkürzungsverzeichnis.tex}
+        
+    \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Konfiguration %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Ende mit römischen Seitenzahlen
+    \renewcommand{\thepage}{\arabic{page}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Text %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Einleitung
+        % Einleitung Vorwort
+            \input{Kapitel/Einleitung/Einleitung Vorwort.tex}
+
+        % Vorwort
+            \input{Kapitel/Einleitung/Vorwort/Vorwort.tex}
+
+        % Problemstellung
+            \input{Kapitel/Einleitung/Problemstellung/Problemstellung.tex}
+
+        % Zielsetzung des Praxisprojekts
+            \input{Kapitel/Einleitung/Zielsetzung des Praxisprojekts/Zielsetzung des Praxisprojekts.tex}
+
+        % Aufbau des Praxisprojektes
+            \input{Kapitel/Einleitung/Aufbau des Praxisprojektes/Aufbau des Praxisprojektes.tex}
+
+    % Die Trützschler Group
+        % Die Trützschler Group Vorwort
+            \input{Kapitel/Die Trützschler Group/Die Trützschler Group Vorwort.tex}
+
+        % Allgemeine Informationen
+            \input{Kapitel/Die Trützschler Group/Allgemeine Informationen/Allgemeine Informationen.tex}
+
+        % Das Geschäftsfeld
+            \input{Kapitel/Die Trützschler Group/Das Geschäftsfeld/Das Geschäftsfeld.tex}
+
+        % Besonderheiten
+            \input{Kapitel/Die Trützschler Group/Besonderheiten/Besonderheiten.tex}
+
+    % Prüfverfahren in der Elektronikfertigung
+        % Prüfverfahren in der Elektronikfertigung Vorwort
+            \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Prüfverfahren in der Elektronikfertigung Vorwort.tex}
+
+        % Grundlegendes
+            % Grundlegendes Vorwort
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Grundlegendes/Grundlegendes Vorwort.tex}
+
+            % Motivation
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Grundlegendes/Motivation/Motivation.tex}
+
+%----------------------------- Prototypisches -----------------------------%
+            % Neue Motivation
+                % \input{Prototypisches/Kapitel 31 Neu/NeueMotivation.tex}
+%----------------------------- Prototypisches -----------------------------%
+
+            % Was ist Prüfen?
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Grundlegendes/Was ist prüfen/Was ist prüfen.tex}
+
+            % Notwendigkeit der Prüfverfahren
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Grundlegendes/Notwendigkeit der Prüfverfahren/Notwendigkeit der Prüfverfahren.tex}
+
+            % Design-for-Test
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Grundlegendes/Design-for-Test/Design-for-Test.tex}
+
+        % Fehler
+            % Fehler Vorwort
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Fehler/Fehler Vorwort.tex}
+
+            % Fehlergrundtypen
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Fehler/Fehlergrundtypen/Fehlergrundtypen.tex}
+
+            % Fehlerarten
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Fehler/Fehlerarten/Fehlerarten.tex}
+
+        % Phasen des Herstellungsprozesses
+            % Phasen des Herstellungsprozesses Vorwort
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Phasen des Herstellungsprozesses/Phasen des Herstellungsprozesses Vorwort.tex}
+
+            % Entwicklungsphase
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Phasen des Herstellungsprozesses/Entwicklungsphase/Entwicklungsphase.tex}
+
+            % Produktionsphase
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Phasen des Herstellungsprozesses/Produktionsphase/Produktionsphase.tex}
+
+            % Verifikationsphase
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Phasen des Herstellungsprozesses/Verifikationsphase/Verifikationsphase.tex}
+
+        % Optische Prüfverfahren
+            % Optische Prüfverfahren Vorwort
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Optische Prüfverfahren Vorwort.tex}
+
+            % Manuelle Optische Inspektion
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Manuelle Optische Inspektion/Manuelle Optische Inspektion.tex}
+
+            % Automatische Optische Inspektion
+                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Automatische Optische Inspektion/Automatische Optische Inspektion.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Literaturverzeichnis %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \input{Kapitel/Literaturverzeichnis/Literaturverzeichnis.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \newpage
+
+%%%%%%%%%%%%%%%%%%%%%%% Eidesstattliche Versicherung %%%%%%%%%%%%%%%%%%%%%%%
+    \input{Kapitel/Eidesstattliche Versicherung/Eidesstattliche Versicherung.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------- Prototypisches -----------------------------%
+    % Grobe Gliederung
+        % \input{Prototypisches/GrobeGliederung/GrobeGliederung.tex}
+
+    % Weitere Gliederung
+        \input{Prototypisches/WeitereGliederung/WeitereGliederung.tex}
+
+    % To-Do-Liste
+        \input{Prototypisches/ToDo/ToDo.tex}
+
+    % Testseite
+        % \input{Prototypisches/Testseite/Testseite.tex}
+    
+    % Layout
+        % \layout{} % Zeigt eine Übersicht der im Dokument vorhandenen Längen samt Zahlenwerte an.
+%----------------------------- Prototypisches -----------------------------%
+
+\end{document}

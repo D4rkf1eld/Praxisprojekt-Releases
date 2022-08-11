@@ -1,0 +1,60 @@
+\subsubsection{Design-for-Test}
+    In Abschnitt \ref{subsubsection: Was ist pruefen} wurde festgestellt, dass die Kosten zum Testen eines Produktes möglichst gering gehalten werden müssen, da jedes Erzeugnis einzeln getestet wird und die Testkosten somit Auswirkungen auf jedes gefertigte elektronische Erzeugnis haben.
+    Zudem wurde in Abschnitt \ref{subsubsection: Notwendigkeit der Pruefverfahren} aufgezeigt, dass das Testen gleichzeitig auch als ein wichtiges Tool der Kostenminimierung dient und dass das Testen möglichst früh und häufig geschehen soll. 
+    Zu beachten ist, dass die Testkosten bis zu 50\% der Gesamtkosten der Fertigung ausmachen.
+    Gleichzeitig darf die Prüfqualität als zentrale Variable der Qualitätssicherung und des Sicherheitsaspektes nicht zu niedrig bewertet werden, denn bei einem Produkt für sicherheitskritische Anwendungen muss z.B. die Fehlerfreiheit garantiert werden können. \cite{eggersglus_test_2014}
+
+    Um einen möglichst großen Kostenspielraum zu haben, müssen diese Punkte schon während des Produktentwurfes berücksichtigt werden \cite{eggersglus_test_2014}.
+    Deswegen stellen diese Punkte wichtige Vorüberlegungen dar, um ein Produkt überhaupt erst entwerfen zu können \cite{grout_integrated_2006}.
+    Diesen Vorüberlegungen bedingt jedoch ein gutes Verständnis der Charakteristiken der Prüfverfahren, z.B. der Testanwendungskosten oder der Kenntnis über die nicht-feststellbaren Fehler, da diese möglicherweise unentdeckten Fehler Konsequenzen mit sich ziehen können \cite{eggersglus_test_2014}.
+
+    Waren früher der Entwurfs- und Produktionsprozess voneinander getrennt, so findet heute ein Umschwung, bedingt durch die Steigerung der Komplexität, die Steigerung der Anforderungen und der Miniaturisierung, statt, der die Kommunikation beider Prozessbereiche unbedingt notwendig macht.
+    Das \acl{dft} bildet die für die Kommunikation die notwendige Schnittstelle. \cite{grout_integrated_2006}
+
+    Daher soll im folgenden das \acl{dft} definiert und vorgestellt werden, welches die Bewertung und Auswertung dieser Vorüberlegungen möglich macht.
+
+    \begin{center}
+        \begin{minipage}{0.75\textwidth}
+            \minisec{Definition}
+                Unter \acl{dft} (DFT, deutsch: testgerechter Entwurf) versteht man unterschiedliche Techniken zur Reduktion mindestens einer Art von Testkosten durch Modifikation der zu testenden Schaltung. \cite{eggersglus_test_2014}
+        \end{minipage}
+    \end{center}
+
+    Die nun folgenden Testkostenarten, die einen direkten oder indirekten Einfluss auf die Produktkosten haben, werden im Angesicht des \acs{dft} genauer beleuchtet: \cite{eggersglus_test_2014}
+
+    \minisec{Testanwendungskosten}
+        Die Testanwendungskosten berücksichtigen die Eigenschaften und Gegebenheiten des für den Prüfling in Betracht stehenden Prüfmittels und zeichnen sich durch die Kosten pro Prüfung ab \cite{berger_test-_2012}.
+
+        % Hierzu zählen die Initialkosten, die für den erstmaligen Test einer Baugruppe anfallen.
+        % Unter diese einmaligen Kosten fällt z.B. die Adapterherstellung (siehe \refneeded{-> In Circuit Test}), oder die Kosten für die Prüfprogrammerstellung.
+        % Diese Kosten werden auf die Gesamtmenge der Prüflinge aufgeteilt. \cite{berger_test-_2012}
+
+        Die Kosten pro Prüfung beinhalten beispielsweise die Kosten, die durch die Anwendungszeit des Tests, der Instandhaltung des Prüfsystems oder durch zusätzlich benötigte Funktionen, also zum Beispiel der Möglichkeit zum Testen mit hochfrequenten Signalen, hervorgerufen werden \cite{eggersglus_test_2014}.
+
+    \minisec{Kosten mangelnder Qualität}
+        Im Falle der Kosten, die durch mangelnde Fehlerüberdeckung des Endproduktes hervorgerufen werden, lassen sich zum einen direkte Kosten definieren, die z.B. durch Vertragsstrafen entstehen und zum anderen indirekte Kosten, welche durch einen Reputationsverlust des Herstellers hervorgerufen werden.
+        Zudem kann durch die mangelnde Qualität der Absatz der Produkte in bestimmten Märkten mit stringenten Anforderungen (z.B. die Erfordernis notwendiger Sicherheitszertifikate) verhindert werden, oder ein Ausweichen auf Märkten mit einem geringeren Gewinn erfordern. \cite{eggersglus_test_2014}
+
+    \minisec{Testentwicklungskosten}
+        Die Testentwicklungskosten, auch Initialkosten genannt, fassen alle Kosten zusammen, die für den erstmaligen Test einer Baugruppe anfallen.
+        Neben der Berücksichtigung der Arbeitsleistung zur Erstellung des Prüfprogramms, zählen hierzu auch die Kosten und der Aufwand der Adapterherstellung. \cite{berger_test-_2012}
+
+        Zusätzlich muss bei der Entwicklung eines Tests beachtet werden, dass zur Verfügung stehende Prüfwerkzeuge nicht alle Fehler eines Prüflings aufdecken können oder für den entsprechenden Prüfling hinsichtlich der Komplexität oder der physischen Größe nicht skalier- oder erweiterbar sind \cite{eggersglus_test_2014}, sodass unter Umständen die geforderte Prüfqualität nicht eingehalten werden kann.
+        Um dann eine volle Fehlerabdeckung erreichen zu können, wäre der Einsatz aller Testverfahren von nöten \cite{berger_test-_2012}.
+        Da dies den Kostenrahmen des elektronischen Erzeugnisses sprengt, ist es schon im Entwurf notwendig, eine sinnvolle Auswahl an möglichen auftretenden Fehlern zu treffen und die geeigneten Prüfmittel anhand dieser Auswahl zu bestimmen \cite{karger_pruftechnik_1985}.
+        Da diese Kenntnis der Fehler wichtig ist, wird in Abschnitt \ref{subsubsection: Fehlerarten} eine Auswahl an häufigen Fehlern besprochen und graphisch dargestellt. 
+        Jedoch schafft das \ac{dft}, im Falle des Mangels, einer zur Erreichung der notwendigen Prüftiefe benötigten Prüffunktion, Abhilfe.
+
+        Dazu ist es dann nötig, eine Schaltung um zusätzliche, für das Testen relevante, Schaltungsteile zu erweitern, die im Normalbetrieb deaktiviert sind \cite{eggersglus_test_2014}.
+        Zum Beispiel können zusätzliche Zugriffspunkte auf interne Signale oder Speicher eines Chips geleitet werden, um die Testbarkeit zu verbessern oder es können Mechanismen wie Boundary Scan (vlg. Abschnitt \refneeded{-> Boundary Scan}) zur Prüfung von nicht zugreifbaren Schaltungsabschnitten in die Schaltung eingefügt werden \cite{eggersglus_test_2014}.
+        Diese Erweiterung erlaubt den Ausgleich der fehlenden, für den Test des Prüflings jedoch notwendigen, Eigenschaften oder Funktionen des Testsystems. 
+        Wegen diesem fundamentalen Eingriff in das Layout, oder auch die Funktionsweise des elektronischen Erzeugnisses, schon während des frühen Produktstadiums, müssen die Entwurfs- und Prüfdisziplinen ineinander übergreifen \cite{grout_integrated_2006}.
+
+        Waren früher der Entwurfs- und Produktionsprozess voneinander getrennt, so findet heute ein Umschwung, bedingt durch die Limitierungen der Tests und der Steigerung der Komplexität, die Steigerung der Anforderungen und der Miniaturisierung, statt, der die Kommunikation beider Prozessbereiche unbedingt notwendig macht.
+        Das \acl{dft} bildet dafür die für die Kommunikation notwendige Schnittstelle. \cite{grout_integrated_2006}
+
+    \vspace{\fsize}
+
+    Werden die genannten Kostenaspekte also schon früh in der Entwurfsphase berücksichtigt, da hier noch die meisten kostenbeeinflussenden Parameter variiert werden können, so wird dieses vorgehen als \acl{dft} bezeichnet \cite{eggersglus_test_2014}.
+    Die Rolle des Prüfens wird insgesamt, durch die Reduzierung der Testkosten, bedingt durch die stetige Produktkostenabnahme, bei gleichzeitig notwendiger adäquater Testtiefe und Optimalität des Prüfverfahrens für die jeweilige Produktsparte, zunehmend bedeutender \cite{grout_integrated_2006}.
+    Mithilfe des \ac{dft} ist ein Werkzeug gefunden, dass eine Auslegung der Balance dieser Aspekte, zur Kostenminimerung des Gesamtproduktes, ermöglicht.

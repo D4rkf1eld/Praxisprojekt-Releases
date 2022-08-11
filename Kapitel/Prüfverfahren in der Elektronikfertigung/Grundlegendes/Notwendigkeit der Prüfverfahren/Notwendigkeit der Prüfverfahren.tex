@@ -1,0 +1,57 @@
+\subsubsection{Notwendigkeit der Prüfverfahren}
+    \label{subsubsection: Notwendigkeit der Pruefverfahren}
+    Die in der Motivation (vgl. Kapitel \ref{subsubsection: Motivation}) vorgestellten Aspekte sollen nun unter der Fragestellung, warum die Prüfverfahren in der Fertigung elektronischer Erzeugnisse notwendig sind, weiterbetrachtet werden.
+
+    Der schon angesprochene Fortschritt der mikroelektronischen Schaltungstechnik bewirkt im Produktionsprozess von Baugruppen einen ständigen Wandel \cite{berger_test-_2012}.
+    Dabei werden die Verfahren zur Herstellung von halbleiterbasierten Bauelementen immer ausgefeilter, sodass mikroelektronische Schaltungen eine hohe Funktionalität auf kleinem Raum besitzen \cite{berger_test-_2012} \cite{grout_integrated_2006}.
+    Dieser Trend der Miniaturisierung hat sich schon früh bemerkbar gemacht.
+
+    1965 beobachtet Gordon Moore\footnote{Gordon Moore ist ein Mitbegründer des Chipherstellers Intel.} eine drastisch ansteigende Leistungsfähigkeit der Datenverarbeitung und eine Abnahme der relativen Kosten im exponentiellen Maßstab und formuliert daraus das Mooresche Gesetz \cite{noauthor_uber_nodate}.
+    Das Mooresche Gesetz beschreibt die Verdoppelung der Komplexität elektronischer Erzeugnisse alle 2 Jahre \cite{berger_test-_2012}.
+
+    Diese Verdoppelung der Komplexität und damit auch die Steigerung der Funktionalität wird durch neue Herstellungsprozesse ermöglicht, die die Produktion immer kleinerer Strukturen erlauben \cite{grout_integrated_2006}.
+    So hat dieser Umschwung den Wechsel von der oftmals manuell durchgeführten Durchstecktechnik \ac{tht}\footnote{\ac{tht}-Komponenten weisen längere Anschlussbeinchen auf, die durch Bohrungen und der anschließenden Kontaktierung in die Leiterkarte gesteckt werden. Vorteile in der Prüftechnik ergibt sich dadurch, dass alle Signale auf der Lötseite zur Verfügung stehen und die Layouterstellung für Leiterkarten zum Testen somit einfacher ist. \cite{berger_test-_2012}} zu der häufig automatisierten Oberflächenmontage \ac{smd}\footnote{\ac{smd}-Komponenten weisen hingegen kurze Anschlussbeinchen, manchmal auch als Anschlusspads ausgelegte Kontakte, auf. Beim Bestückungsprozess werden sie, nachdem die Anschlusspads der Leiterkarte mit Lotpaste versehen wurde, auf die Leiterkarteoberfläche aufgelegt und verlötet. \cite{noauthor_leiterplattenbestuckung_nodate}} bei dem Bestückungsprozess von Bauteilen bewirkt \cite{berger_test-_2012}.
+    Durch die \ac{smd} wurden die Gehäuseformen der Bauteile auf weniger als die Hälfte der bisherigen Größen geschrumpft \cite{berger_test-_2012}.
+
+    Dadurch kann auch das Endprodukt kleiner produziert werden, sodass es günstiger verkauft werden kann, denn es können z.B. periphere Funktionen, die eine zusätzliche Beschaltung der externen Chips benötigen würden, direkt in den Baustein integriert werden \cite{berger_test-_2012}.
+    Jedoch führen die neuartigen Fabrikationsprozesse zu stärkeren statistischen Schwankungen im Produktionsprozess, sodass dies Gerätefehler und/oder Parametervariationen hervorrufen kann \cite{berger_test-_2012} \cite{grout_integrated_2006}.
+    Allerdings betreffen die statistischen Schwankungen nicht nur die elektronischen Erzeugnisse, sondern auch die Testverfahren selbst.
+    Bereits beseitigte Fehler können wieder auftreten und es können auch neue Fehlerarten entstehen, da bisher unbedeutende Effekte plötzlich relevant werden \cite{berger_test-_2012}.
+    Es ergibt sich ein ständiges Katz und Maus Spiel, denn zur Feststellung der neuartigen Fehler und zur Anpassung an die kleineren Strukturgrößen müssen die Testverfahren ständig angepasst werden.
+    Somit werden die Fortschritte der mikroelektronischen Schaltungstechnik durch die Prüfverfahren gesichert und bedingen aber auch wiederum einem nachhaltigen Fortschritt bei den Prüfverfahren \cite{eggersglus_test_2014}.
+    Diese Abhängigkeit macht den Einsatz der Prüfverfahren zur Zertifizierung der \textbf{Sicherheit} und \textbf{Qualität} von Herstellungsgütern bei sich ständig verändernden Herstellungsbedingungen unerlässlich.
+
+    Fehlerhafte Produkte verringern nicht nur die eigentliche Ausbeute (engl. Yield) der im Produktionsprozess gefertigten Geräte, sondern können bei Auslieferung auch einen Reputationsverlust des Herstellers und weiterer Teilhaber der Wertschöpfungskette bewirken, was weitere Kosten nach sich zieht \cite{eggersglus_test_2014}.
+    Ein Indikator, um die Wichtigkeit der Prüfverfahren und der Fehlererkennung in einer elektronischen Schaltung im Punkt \textbf{Kosten} darzustellen, ist die sogenannte \glqq Rule-of-Ten\grqq\@: \cite{grout_integrated_2006} \cite{eggersglus_test_2014}
+
+    Die Regel besagt, dass die Kosten zur Ersetzung eines fehlerbehafteten Bauteils mit jedem Fertigungsschritt um das 10-fache steigt.
+    Würde eine fehlerhafte mikroelektronische Schaltung in ein Gehäuse \glqq gegossen\grqq\@ werden, so wären die Kosten der Ersetzung um das 10-fache höher.
+    Dieser fehlerbehaftete Chip würde dann in der für ihn vorgesehenen Schaltung auf einer Leiterkarte weitere Fehler verursachen.
+    Zusätzlich kann unter der Zunahme weiterer Komponenten, die selbst Fehler verursachen können, das eigentliche Problem maskiert werden.
+    Da der Detektionsaufwand der Fehler aufgrund der gestiegenen Komplexität des Produkts, durch die Integration auf der Leiterkarte, wesentlich aufwendiger ist, steigert dies die Kosten wiederum um das 10-fache.
+    Die finale Integration der Leiterplatte in ein System, würde die Detektion nochmals aufwendiger gestalten. \cite{eggersglus_test_2014}
+    Daher muss die Kosteneskalation am besten durch frühes und häufiges Testen vermieden werden \cite{grout_integrated_2006}.
+
+    Einen wichtigen Beitrag leisten die Prüfverfahren auch bei der Verbesserung des Produktionsprozesses.
+    Hierfür ist eine richtig eingebundene Teststrategie in den Produktionsprozess essentiell \cite{berger_test-_2012}.
+    Mittels einer Rückkopplung der im Produktionsprozess durch Prüfung und Messung gewonnenen quantitativen Charakteristika über den Prozessverlauf selbst, kann somit eine Einflussnahme auf die verschiedenen Bereiche der Produktion geschehen \cite{karger_pruftechnik_1985}.
+    Die für die Rückkopplung notwendigen Charakteristika können aus dem Produktionsprozess selbst stammen oder aus dem Produkt selbst gewonnen werden, da zwischen den zulässigen Qualitätsabweichungen der Produkte und den Parametern der Herstellungsprozesse bestimmte Zusammenhänge herrschen \cite{karger_pruftechnik_1985}.
+
+    Somit dient die Rückkopplung der im Herstellungsprozess gewonnen Informationen auf die Fertigung selbst, möglich durch die Testverfahren, auch der \textbf{Qualitätssicherung}.
+    
+    % \begin{table}[htbp]
+    %    \centering
+    %    \begin{tabular}{cccc}
+    %        \toprule
+    %        X & A & B & C \\
+    %        \midrule
+    %        1 & A1 & B1 & C1 \\
+    %        \midrule
+    %        2 & A2 & B2 & C2 \\
+    %        \midrule
+    %        3 & A3 & B3 & C3 \\
+    %        \bottomrule
+    %    \end{tabular}
+    %    \caption[Tabelle]{Das ist eine Tabelle}
+    %    \label{Tabelle: AspektePruefverfahren}
+    % \end{table}

@@ -1,0 +1,247 @@
+\setcounter{section}{0}
+
+\section{Einleitung}
+    Dieses Praxisprojekt entsteht in der Zusammenarbeit mit der Trützschler Group SE in Mönchengladbach Odenkirchen\dots
+
+    \subsection{Die Trützschler Group}
+
+        \annot{Unternehmen vorstellen}
+
+        \annot{Was macht Trützschler?}
+
+        \annot{Was ist das besondere bei Trützschler?}
+
+    \subsection{Problemstellung}
+
+        \annot{TSAS ist alt}
+
+            \annot{Keine Ersatzteile mehr für TSAS}
+            
+            \noindent
+            \annot{Software}
+
+                \annot{Keine Updates mehr}
+
+                \annot{Es ist schwierig neue Leiterkarten dort einzubinden}
+
+                \annot{Neues System nutzt bestehende CAD-Dateien}
+
+            \noindent
+            \annot{Adapterbau ist teuer und aufwendig}
+
+                \annot{Beispiel anbringen für den Preis und den Aufwand (Euro und Stunden)}
+
+                \annot{Debugging der Adapter ist auch aufwendig}
+                
+                \annot{Daher sollen alte Adapter auf dem neuen System funktionieren}
+
+    \subsection{Ziele des Praxisprojektes}
+
+        \annot{Mir einen Einblick in den Ablauf der industriellen Produktion von Leiterkarten geben}
+
+        \noindent
+        \annot{Über verschiedene Testmöglichkeiten informieren}
+
+        \noindent
+        \annot{R\&S und SPEA dokumentieren}
+
+        \noindent
+        \annot{Maschinen kennenlernen}
+
+            \annot{Gemeinsamkeiten und Unterschiede der Tester erfahren}
+
+            \annot{Mögliche Migrationsstrategien stellen sich dabei heraus}
+
+    \subsection{Aufbau des Praxisprojektes}
+
+\section{Testverfahren in der Industrie}
+
+    \subsection{Herstellungsschritte der Leiterkarten}
+
+        \annot{Unbestückte Leiterkarte/PCB heißt dann PCBA (Printed Circuit Board Assembly)}
+
+        \noindent
+        \annot{Von der Planung bis zur fertigen Karte}
+
+            \annot{\notsure{Vielleicht als Flussdiagramm?}}
+
+            \annot{Bestückungsreihenfolge}
+
+                \indent \indent \annot{Hinsichtlich der Bauelemente}
+
+            \annot{Verschiedene Testverfahren, die durchlaufen werden}
+
+                \indent \indent \annot{Von dem ICT mit Kurzschlusstest (sehr am Anfang) bis hin zur Wärmekammer}
+
+                    \indent \indent \indent \annot{\notsure{Vielleicht als Flussdiagramm?}}
+
+        \noindent
+        \annot{\notsure{Wie designed man for Test?}}
+
+            \annot{Regeln aufführen}
+
+            \annot{Unter dem Aspekt, dass einige Leiterkarten nicht ICT fähig sind}
+
+                \indent \indent \annot{Hohe Bauteile}
+
+                \indent \indent \annot{Bottom Bestücktheit}
+
+                \indent \indent \annot{Wie wird mit solchen Boards verfahren? \notsure{Flying Probe?}}
+
+    \subsection{Notwendigkeit der Testverfahren}
+
+        \annot{Fehler die auftreten können (Fehlerarten/Fehlertypen) und dann sagen, dass das Testen sinnvoll ist}
+
+            \annot{Z.B. kann ein Widerstand falsch sein/Bauteilwert falsch sein}
+
+                \indent \indent \annot{Würde man erstmal so nicht drauf kommen}
+
+            \annot{Bei BGA ist ein Pin nicht richtig verlötet}
+
+                \indent \indent \annot{Würde man erstmal so nicht drauf kommen}
+
+        \noindent
+        \annot{Statistik ansprechen, wieviele Leiterkarten gebaut werden}
+
+            \annot{Sagen wieviele davon durchfallen}
+
+            \noindent
+            \annot{Grund ist die Qualitätssicherung, Kostenminimierung und Sicherheit für die Inbetriebnahme}
+
+                \indent \annot{Durch das Testen können außerdem Verbesserungen an dem Produkt vorgenommen werden}
+
+                \indent \annot{Das ganze mit Minisections gliedern}
+
+    \subsection{Testverfahren}
+
+        \subsubsection{Standard In Circuit Testing \dbg{<- Acronym}}
+
+            \annot{Manufacturing Defect Analysis (MDA)}
+
+            \noindent
+            \annot{Design-for-Testability}
+                \notsure{Nochmals anschneiden und spezifische Werte füllen?}
+
+            \noindent
+            \annot{Adapter}
+
+                \annot{Single Bay oder Dual Bay}
+
+                \annot{Nadelarten}
+
+            \noindent
+            \annot{Single Core und Multi Core Systeme}
+
+        \subsubsection{Flying Probe Testing}
+
+        \subsubsection{BIST}
+
+        \subsubsection{Optische Testverfahren}
+
+            \annot{Man kann die Polarität von Elkos nicht messtechnisch bestimmen, daher ist das hier sinnvoll!}
+
+            \noindent
+            \annot{Manuelle Optische Inspektion}
+
+            \noindent
+            \annot{Automatische Optische Inspektion}
+
+        \subsubsection{Röntgeninspektion}
+
+        \subsubsection{\notsure{Funktionstest}}
+
+        \subsubsection{\notsure{Zusätzliche Features wie ISP}}
+
+        \subsubsection{weitere Recherche nötig\dots \annot{Weitere und gucken ob es auch VERFAHREN sind!}}
+
+    \subsection{Teststrategien}
+
+        \subsubsection{Kapazitäten \annot{Wie kann man die Kapazität/andere Bauteile messen}}
+
+            \annot{Dieser Teil hier soll unabhängig des Testverfahrens sein}
+
+                \annot{\notsure{Also ist der Boundary Scan zu den oberen Punkten (ICT, FPT, usw.) zugehörig?}}
+
+        \subsubsection{Analoger Test}
+
+            \annot{\notsure{Vectorless?}}
+            
+            \noindent
+            \annot{\notsure{Hier Open Pin Test als Alternative für den Digitaltest anführen?}}
+
+                \indent \annot{\notsure{Digitaltest benötigt ja hohe Schaltfrequenzen und perfektes Timing}}
+
+                \indent \annot{\notsure{Werden feste Testmuster (bekannte Ein- und Ausgabe) benötigt?}}
+
+        \subsubsection{Digitaler Test}
+
+            \annot{\notsure{Vector Test?}}
+
+            \noindent
+            \annot{\notsure{Bei Geräte die keinen Boundary Scan unterstützen?}}
+
+        \subsubsection{Mixed Signal Test}
+
+        \subsubsection{Boundary Scan (JTAG)}
+
+            \annot{Boundary Scan Descriptive Language}
+
+        \subsubsection{Junction Scan/Open Pin Test}
+
+        \subsubsection{Funktionstest}
+
+    \subsection{Maßnahmen zur Messfehlerreduzierung}
+
+        \subsubsection{Guarding}
+
+            \annot{Laut T.W. gibt es hierfür mehrere Möglichkeiten}
+
+        \subsubsection{Mehrdrahtmessung}
+
+        \subsubsection{weitere Recherche nötig\dots}
+
+\section{Praxisbeispiele}
+
+    \subsection{Rohde \& Schwarz TSAS}
+        \subsubsection{Grundlegendes}
+
+        \subsubsection{Aufbau/Funktionsweise/Schnittstellen}
+
+        \subsubsection{Module/Technische Spezifikationen}
+
+        \subsubsection{Besonderheiten}
+
+        \subsubsection{Probleme}
+
+    \subsection{SPEA 3030 Compact}
+        \subsubsection{Grundlegendes}
+        
+        \subsubsection{Aufbau/Funktionsweise/Schnittstellen}
+
+            \annot{Augat Pylon Interface}
+
+        \subsubsection{Module/Technische Spezifikationen}
+
+        \subsubsection{Besonderheiten \annot{Stray Capacitance Ausgleich z.B.}}
+
+        \subsubsection{Probleme}
+
+    \subsection{Kompatibles}
+
+        \subsubsection{Vorschläge, wie die Migration erfolgen könnte (in der BA prüfen und sich entscheiden?)}
+
+    \subsection{Unterschiede/Inkompatibilitäten}
+
+        \subsubsection{Wie könnte man damit verfahren (in der BA ansprechen und einen Weg raussuchen?)}
+
+\section{Zusammenfassung}
+
+\section{Ausblick}
+
+    \noindent
+    \annot{Ausblick über allgemeine Testverfahren}
+
+    \noindent
+    \annot{\notsure{Ausblick über die Verfahrenswege der Migration}}
+
+\section{Fazit}

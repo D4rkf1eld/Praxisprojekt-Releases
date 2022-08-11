@@ -1,0 +1,34 @@
+\subsection{Problemstellung}
+    Das TSAS Testsystem wird aufgrund seines Alters (ca. 32 Jahre) nicht mehr von Rohde \& Schwarz unterstützt.
+    Es gibt keinen Markt für Ersatzteile und der Kundensupport ist vollständig eingestellt.
+    Auch gibt es zu diesem Gerät keine öffentliche Dokumentation, sodass eine Eigenwartung ausgeschlossen werden kann.
+
+    Das Steuerungsprogramm \ac{tss}, welches als einziges Programm die obsolete \ac{tsl} beherrscht und zur Steuerung des Testablaufs mithilfe der Testprogramme auf dem Testsystem verwendet werden muss, ist nur mit frühen Windows Versionen (bis einschl. NT 4.0) kompatibel.
+    Aufgrund der alten Betriebssystemversion und des damit einhergehenden Sicherheitsrisikos ist der Steuerungscomputer nicht am Netzwerk angeschlossen.
+
+    Moderne Funktionen, die einer neueren Betriebssystemversion und einer Einbindung in ein Netzwerk bedingen, die dadurch die Testqualität bzw. die Diagnosequalität erhöhen, werden somit auch nicht unterstützt.
+    Beispielsweise könnte die Synchronisation und Auswertung der Testdaten mit einer Datenbank zur Generierung von Statistiken benutzt werden.
+    Mithilfe dieser Statistiken können im Idealfall Prozessoptimierungen vorgenommen werden, wenn z.~B. während des Testens bei einer bestimmten Baugruppe wiederholt Fehler auftreten.
+    Eine Funktion der SPEA Testsysteme, die die Geschwindigkeit der manuellen Inspektion einer Leiterkarte durch einen Menschen nach Auftreten eines Fehlers erheblich steigert, erfordert auch wesentlich neuere Software und eine Netzwerkanbindung.
+    
+    Das Testsystem kann nämlich nicht nur die getesteten Leiterkarten zu Datensätzen in einer Datenbank selbständig zuordnen und die Prüfergebnisse verbuchen.
+    Aufgetretene Fehler können an verschiedenen Diagnosearbeitsplätzen, durch das einfache Scannen eines zur Leiterkarte gehörigen Barcodes, mithilfe von Markierungen und weiteren Hilfestellungen visuell angezeigt werden.
+
+    Ein Ausfall des Steuerungscomputers, bedingt durch die veraltete Hardware, oder gar des TSAS Testsystems und damit die Unterbrechung des Testablaufes, würde zu einem erheblichen Test- und Produktionsrückstau führen.
+    \annot{Verhältnis der Testerbeteiligung fehlt}
+    So können dann nicht nur weniger Leiterkarten pro Zeiteinheit getestet werden.
+    Es würden einige Baugruppen nicht weiter auf Fehler untersucht werden können, da hierzu die notwendigen Adapter und Testprogramme (siehe \refneeded{-> ICT}) auf den SPEA Maschinen fehlen.
+    Ersatzweise können auch die eigenen Testsysteme nicht zur Überprüfung herangezogen werden, da hierzu die notwendige Testtiefe fehlt.
+
+    % Dadurch ist Trützschler nicht nur einem Sicherheitsrisiko, aufgrund mangelnder Sicherheitsupdates, ausgesetzt.
+    % Vielmehr kann die Testqualität und somit auch die Produktionsqualität nicht von einer regelmäßig verbesserten Steuerungssoftware, durch Updates, profitieren.
+    % \notsure{Zusätzlich ist es mit dieser veralteten Software nicht möglich, die diagnostizierten Leiterkarten über eine Netzwerkanbindung \annot{Faktor Sicherheit: Altes System am Netzwerk ist blöd.} mit einer zentralen Datenbank zu synchronisieren, abzugleichen und aufgetretene Leiterkartenfehler durch externe Software anzuzeigen und statistisch erfassen zu lassen.}
+    % \notsure{Auch ist es mühsam, neue Leiterkartenlayouts in das Programm einzufügen und zu debuggen? zu verwalten? zu aktualisieren?}
+    % \annot{Z.b. verpasst man die Testleichtigkeit des 3030C wo man im Netzwerk über die Datenbank den Fehler zur Leiterplatte grabben kann und man sich den auf dem Monitor als Leiterkarte mit Umkringelung anzeigen lassen kann.}
+
+    % Durch den hohen Anteil des TSAS an der momentanen Testsystemverteilung der getesteten Leiterkarten (\notsure{40\% TSAS zu 60\% 3030 Compact}) ist somit ein hohes Risiko für einen Produktionsstau durch einen Systemausfall gegeben.
+    % Dieser Systemausfall würde also auch noch länger andauern, da die Unterstützung seitens Rohde \& Schwarz komplett eingestellt worden ist.
+    
+    % Daher soll die Testumgebung des Rohde \& Schwarz TSAS auf die Testumgebung des SPEA 3030 Compact migriert werden.
+    % Somit gilt es zu untersuchen, ob diese Migration sinnvoll und technisch umsetzbar ist, oder ob Alternativlösungen besser für die Ablösung des TSAS geeignet sind.
+    % Wichtiger Bestandteil der Migration ist, dass die vorhandenen Nadelbettadapter (siehe Kapitel \refneeded{-> ICT-Nadelbettadapter}) des TSAS auf dem 3030 Compact funktionieren sollen, da die Adapterherstellung mit hohen Kosten und einem hohem, nachträglichen Aufwand verbunden ist.

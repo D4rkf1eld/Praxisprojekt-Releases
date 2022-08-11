@@ -1,0 +1,74 @@
+\subsubsection{Fehlergrundtypen}
+    Bei der Untersuchung von Fehlern ist es wichtig, eine geeignete Auswahl an Fehlergrundtypen zur Bewertung der Ursachen, der Schwere und der Folgen zu betrachten.
+    Durch die Bildung einer Reihenfolge helfen diese Charakterisierungen zudem bei der Behandlungspriorisierung \cite{noauthor_fehlerklassifizierung_2022}.
+    Die Darstellung zu diesen Grundtypen erfolgt zusammengefasst in der folgenden Tabelle \ref{Tabelle: Fehlergrundtypen}.
+
+    \begin{table}[htbp]
+        \centering
+        \begin{tabular}{ccccc}
+            \toprule
+            Auftrittscharakter & Kausale Verknüpfung & Anzahl & Fehlerdauer & Gewicht \\
+            \toprule
+            Grob & Primär & Einzeln & Ständig & Unwesentlich\\
+            \midrule[0.1pt]
+            Systematisch & Funktional & Mehrfach & Intermittierend & Unbedeutend \\
+            \midrule[0.1pt]
+            Zufällig & Final & & & Kritisch \\
+            \midrule[0.1pt]
+             & & & & Überkritisch \\
+            \bottomrule
+        \end{tabular}
+        \caption[Übersicht der Fehlergrundtypen]{Übersicht der Grundtypen von Fehlern. In Anlehnung an: \cite{karger_pruftechnik_1985}}
+        \label{Tabelle: Fehlergrundtypen}
+    \end{table}
+
+    Die Fehlergrundtypen sollen nun einmal näher besprochen werden:
+
+    \minisec{Auftrittscharakter}
+        Der Auftrittscharakter gibt Aufschluss über die Entstehung des Fehlers.
+        Entweder kann der Fehler eine beobachtbare Ursache haben, oder er entsteht durch Zufallsvorgänge.
+
+        \begin{itemize}
+            \item \textbf{Grob:} Grobe Fehler entstehen eher selten und sind z.B. auf Unachtsamkeiten der Arbeitskräfte zurückzuführen. Vermeidbar sind sie durch entsprechende Schulungen oder klaren Arbeitsanweisungen. \cite{karger_pruftechnik_1985}
+            \item \textbf{Systematisch:} Die systematischen Fehler sind gleichermaßen korrigierbar, wie die groben Fehler und zeichnen sich durch eine stetige Variation vom Sollwert unter gleichbleibenden Bedingungen ab. Die Ursache des Fehlers ist gefunden, wenn eine Gesetzmäßigkeit für diese Bedingungen formuliert werden kann. \cite{karger_pruftechnik_1985} 
+            \item \textbf{Zufällig:} Fehler, die einen unbestimmten Auftrittszeitpunkt vorweisen und deren Parametervariation in Betrag und Vorzeichen streuen, werden als zufällige Fehler bezeichnet. Sie sind nicht vermeidbar und stellen die signifikantesten Fehler dar, die im Prüfprozess ermittelt und behoben werden müssen. \cite{karger_pruftechnik_1985}
+        \end{itemize}
+
+    \minisec{Kausale Verknüpfung}
+        Da im Herstellungsprozess oftmals erst Fehler als Resultat eines Fehlers in einem vorherigen Prozessschritt deutlich werden, ist es wichtig, diese Fehler zur Rückverfolgung auch klassifizieren zu können.
+
+        \begin{itemize}
+            \item \textbf{Primärfehler:} Ein Primärfehler tritt zum ersten mal im jeweiligen Prozessstadium der Leiterkarte auf. Aus dem Primärfehler entsteht durch Fehlerfortpflanzung ein funktionaler Fehler oder ein finaler Fehler. \cite{karger_pruftechnik_1985}
+            \begin{enumerate}
+                \item \textbf{Funktionaler Fehler:} Die funktionalen Fehler entstehen durch eine Kette von aufgetretenen Fehlern im selben oder vorherigen Prozessstadium. \cite{karger_pruftechnik_1985}
+                \item \textbf{Finaler Fehler:} Ein finaler Fehler stellt sich unmittelbar aus seiner Entstehung heraus und wird nicht durch Fehlerfortpflanzung maskiert. \cite{karger_pruftechnik_1985}
+            \end{enumerate}
+        \end{itemize}
+
+    \minisec{Anzahl}
+        Anhand der Fehleranzahl lässt sich die Prozessqualität abschätzen.
+        Treten während eines Prozesses mehrere Fehler der gleichen Art auf, so ist eine Verbesserung des jeweiligen Herstellungsprozesses notwendig.
+
+        \begin{itemize}
+            \item \textbf{Einzelfehler:} Treten in der Fertigung relativ häufig auf \cite{karger_pruftechnik_1985}.
+            \item \textbf{Mehrfachfehler:} Falls die jeweiligen Fehler eines Mehrfachfehlers unabhängig voneinander auftreten, so lassen diese sich auch als Einzelfehler behandeln \cite{karger_pruftechnik_1985}.
+        \end{itemize}
+        
+    \minisec{Fehlerdauer}
+        Anhand der Fehlerdauer lässt sich die Diagnoseschwierigkeit abschätzen.
+
+        \begin{itemize}
+            \item \textbf{Ständige Fehler:} Da die ständigen Fehler eine gute Reproduzierbarkeit aufweisen und dauerhaft feststellbar sind, lässt sich die Fehlerquelle dadurch einfach lokalisieren \cite{karger_pruftechnik_1985}.
+            \item \textbf{Intermittierende Fehler:} Dieser Fehlertyp stellt die Prüftechnik vor besondere Herausforderungen und tritt in Abständen von Bruchteilen von Sekunden bis zu Stunden auf \cite{karger_pruftechnik_1985}. Dieser Fehlertyp ist nur schwer feststellbar.
+        \end{itemize}
+
+    \minisec{Fehlergewicht}
+        Das Fehlergewicht gibt Aufschluss über die durch einen Fehler geminderte Qualität des elektronischen Erzeugnisses.
+        Hierbei spielen auch Sicherheitsfaktoren eine große Rolle.
+
+        \begin{itemize}
+            \item \textbf{Unwesentlicher Fehler:} Unwesentliche Fehler mindern die Produktqualität, jedoch nicht die Funktionsweise oder Brauchbarkeit \cite{karger_pruftechnik_1985}.
+            \item \textbf{Unbedeutender Fehler:} Ein unbedeutender Fehler schränkt die Brauchbarkeit leicht ein \cite{karger_pruftechnik_1985}. Zwar erfüllt das Produkt noch seinen Zweck, jedoch passen z.B. die Abmessungstoleranzen nicht oder das Produkt weist optische Mängel auf \cite{noauthor_fehlerklassifizierung_2022}.
+            \item \textbf{Kritischer Fehler:} Ein durch einen kritischen Fehler betroffenes Produkt erfüllt seine funktionalen Vorgaben nur zum Teil oder garnicht. Damit ist es für den vorgesehenen Zweck unbrauchbar. \cite{karger_pruftechnik_1985}
+            \item \textbf{Überkritischer Fehler:} Diese Fehlerart ist unbedingt zu vermeiden, da aus ihr schwerwiegende Folgen entstehen, die das Produkt nicht nur unbrauchbar machen. Beispielsweise können Menschenleben gefährdet werden oder es kann zu einem großen Verlust der Unternehmenswirtschaft kommen. \cite{karger_pruftechnik_1985} Auch wird gegen Gesetze verstoßen, da bestimmte Sicherheitsvorschriften fehlerbedingt nicht eingehalten werden können \cite{noauthor_fehlerklassifizierung_2022}.
+        \end{itemize}

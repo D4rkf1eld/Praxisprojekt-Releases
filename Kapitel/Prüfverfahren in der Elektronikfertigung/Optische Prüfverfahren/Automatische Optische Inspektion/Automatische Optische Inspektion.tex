@@ -1,0 +1,101 @@
+\subsubsection{\acl{aoi}}
+    Mit der fortschreitenden Leistungssteigerung von Computern und den dadurch verbesserten Möglichkeiten zur Prozessautomatisierung wurde auch die automatisierte Variante der Sichtkontrolle, die \ac{aoi}, zugänglich.
+    Die Bauteile der Leiterkarten werden nunmals Schritt für Schritt, anhand eines Prüfprogrammes, mithilfe von Kameras inspiziert \cite{neumann_mut_2014}.
+    
+    Zusätzlich wurde der Ruf nach der \ac{aoi} größer, da der Einsatz der \ac{moi} in der Fertigung, aufgrund der niedrigen Geschwindigkeit und der fortschreitenden Miniaturisierung, an seine Grenzen gestoßen ist \cite{berger_test-_2012}.
+    Der gestiegende Bedarf nach einer höheren Fertigungsqualität hat zudem die Erstellung von Prozessstatistiken und die damit verbundene, zur Rückkopplung notwendige, Dokumentationspflicht der Prüfergebnisse veranlasst, die in dem Umfang bei manuellen Prüftätigkeiten nicht tragbar ist.
+    Da der vielseitige Einsatzzweck und die hohe Fehlerabdeckung der optischen Prüfverfahren dennoch weiterhin in der Fertigung eine große Rolle spielt, hat sich der Einsatz der \ac{aoi} im Laufe der Zeit als wesentlich zuverlässigere Prüfvariante herausgestellt \cite{berger_test-_2012}. 
+    Im Gegensatz zur Sichtkontrolle werden \ac{aoi}-Systeme, aufgrund der höheren Geschwindigkeit, sowie einer konstanten Sorgfältigkeit bei der Prüfung, in den automatisierten Fertigungsprozess als sogenannte Inline-Testsysteme integriert und sind damit für verschiedenste Losmengen ausgelegt \cite{berger_test-_2012} \cite{stiny_fertigung_2010}.
+    
+    Dennoch ist die \ac{moi} in der Elektronikfertigung weiterhin ein unverzichtbares Mittel und geht teilweise Hand in Hand mit der automatischen optischen Inspektion einher.
+    Neben dem Aufbau und der Funktionsweise solcher \ac{aoi}-Systeme, wird die enge Verknüpfung der \ac{aoi} und \ac{moi} in den folgenden Abschnitten näher beleuchtet.
+
+    \minisec{Bestandteile eines \ac{aoi}-Systems}
+        Ein System zur Durchführung einer automatischen optischen Inspektion lässt sich grob in zwei Funktionsbereiche, bestehend aus Hard- und Software gliedern.
+
+        Die Hardwarebestandteile umfassen die optischen Elemente, wie die Kamera, Linsen und Beleuchtungen.
+
+        Die Softwarekomponenten eines \ac{aoi}-Systems beinhalten die Mittel zur Steuerung des Prüfvorgangs anhand eines Prüfprogrammes, die Mittel zur Bewertung der Qualitätsmerkmale und die Mittel zur Verarbeitung und Speicherung der gewonnenen Daten.
+        Da sich die Mittel zur Steuerung des Prüfvorgangs und die Mittel zur Verarbeitung und Speicherung der gewonnenen Daten zwischen Prüfverfahren ähneln, wird im Folgenden der Fokus auf die Softwarealgorithmen zur Bewertung der Qualitätsmerkmale gelegt.
+
+    \minisec{Anforderungen an die Hardwarekomponenten}
+        Die in ihrer Form und Farbe vielfältigen Bauteile, zum Teil auch die Anschlusspins auf einer Leiterkarte, erzeugen bei der Betrachtung in der optischen Inspektion ein kontrastreiches Bild.
+        Dieses kontrastreiche Bild stellt die Bildaufnahme- und Bewertungsmechanismen vor große Herausforderungen.
+        Aufgrund der zusätzlichen Abweichung der Helligkeitsmerkmale von Baugruppe zu Baugruppe besteht die Gefahr, dass Fehler nicht mehr zuverlässig erkannt werden, oder das eine ständige Anpassung des Prüfprogrammes notwendig ist, sodass die Automatisiertheit des Testsystems nicht mehr gegeben ist.
+        Eine Prozessvariation führt somit schließlich auch zu einem unzuverlässigen Prüfverhalten, da mit ihr Veränderungen des optischen Verhaltens einhergehen. \cite{stiny_fertigung_2010}
+        Dies schlägt sich in der Auswertung der Prüfmerkmale, durch die Auswertungsalgorithmen, nieder.
+        Somit ist es im Vorfeld wichtig, die durch die Reflexionen erzeugten Unstimmigkeiten, durch eine hohe Bildaufnahmequalität, möglichst gering zu halten \cite{berger_test-_2012}.
+
+        Daher bedarf es, zur Minimierung dieser Umstände, besonderen Optiken und Auswertungsalgorithmen, die im folgenden näher besprochen werden.
+
+        Zunächst soll der Bildaufnahmemechanismus, als zentrales Element der \ac{aoi}, welcher die Bildinformationen in digitale Informationen umsetzt, besprochen werden.
+
+        Zur Bildaufnahme in \ac{aoi}-Systemen kommen häufig Kameras, alternativ auch baugruppenbreite Scanner, zum Einsatz.
+        Sie inspizieren das \ac{uut} meistens aus der Vogelperspektive, d.h. orthogonal zur Prüffläche, oder auch seitlich, sodass verdeckte Bereiche sichtbar werden.
+        Die Kameras benötigen, um auch zwischen den kleinsten Bauteilen differenzieren zu können, eine hohe Pixelauflösung.
+        Zur Bestimmung der benötigten Pixelauflösung wird das kleinste, zu Erkennung notwendige, Merkmal als Indikator genutzt. \cite{berger_test-_2012}
+
+        Da man sich die Pixel des Kamerasenors als eine Art optischer Abtastpunkte vorstellen kann, muss zur Bestimmung der benötigten Pixelauflösung das Nyquist-Abttastheorem eingehalten werden.
+        Zur Erkennung des kleinsten Merkmales mit einer bestimmten Breite muss dementsprechend die Pixelbreite weniger als die Hälfte der Merkmalbreite betragen.
+        Im Umkehrschluss wird das Merkmal somit mit mindestens zwei Pixeln abgelichtet, sodass eine anschließende Darstellung möglich ist.
+        Bei der Ablichtung von Lötmenisken empfiehlt es sich jedoch, die Pixelbreite fünf mal kleiner zu wählen. \cite{berger_test-_2012}
+
+        Meistens werden zur Kompensation der hohen Pixelauflösung Vergrößerungsoptiken eingesetzt, da diese die effektiven Merkmalmaße vergrößern.
+        Ein hochauflösendes Vollbild würde die Arbeitsgeschwindigkeit senken und den Speicherverbrauch drastisch erhöhen \cite{berger_test-_2012}.
+
+        Durch die Vergrößerung und der damit einhergehenden Einschränkung des Sichtfeldes ist es für ein vollständiges Bild allerdings notwendig, das \ac{uut} in mehreren Schritten zu erfassen.
+        Daher müssen die Kameras über ein X-Y-Achssystem verfahrbar sein.
+        Dies hat Auswirkungen auf die für den prozesstaktgleichen Betrieb besonders zu berücksichtigende Prüfgeschwindigkeit des \ac{aoi}-Systems, da die Prüfmerkmale dann in mehr Schritten abgearbeitet werden müssen. \cite{berger_test-_2012}
+
+        Weiter müssen die verwendeten Kameras, wie Eingangs erwähnt, die hohen Bildkontraste möglichst gut verarbeiten können.
+        Zudem darf das Bild nicht durch Verzerrungen, Pixelfehler, oder Schwankungen auf Pixelebene (Grundrauschen, etc.), gestört werden, da die Auswertungsalgorithmen sonst Fehldeutungen treffen. 
+        Daher ist für die optische Analyse auch ein stabiles Temperaturverhalten des Sensors notwendig. \cite{berger_test-_2012}
+
+        Für die optische Erfassung des \ac{uut}, die Weiterverarbeitung der Daten und die Fehlerdiagnose ist auch der Bildfarbraum der Kameras entscheidend.
+        So kann eine Aufnahme in \ac{sw} oder im \ac{rgb} Farbraum erfolgen. \cite{berger_test-_2012}
+
+        Da die Bewertungsalgorithmen oft nur den Kontrast der Prüflingsmerkmale auswerten, wurden \acl{sw}-Kameras in der Vergangenheit sehr häufig eingesetzt \cite{berger_test-_2012}.
+        Der häufige Einsatz der \ac{sw}-Kameras rührte aus einem geringeren Preis, im Vergleich zu Farbkameras mit gleicher Auflösung.
+        Eine farbliche Unterscheidung der Komponenten wurde durch eine farbige Beleuchtung erreicht \cite{berger_test-_2012}.
+        Auch waren die Übertragungsbandbreite, sowie die Systemleistung zur Verarbeitung und Auswertung, wichtige Faktoren zum Entscheid für eine \ac{sw}-Kamera \cite{berger_test-_2012}.
+        Mittlerweile wurden die \ac{sw}-Kameras vom Markt fast vollständig verdrängt \cite{berger_test-_2012} und eine farbige Ablichtung ist trotzdem, durch bestimmte Verfahren, zu einem niedrigen Preis möglich.
+        Bei der \ac{aoi} ist jedoch entscheidend, mit welchem Verfahren die Farbinformationen für die bildliche Darstellung entstehen, da es bei den hohen Auflösungen aufgrund unerwünschter Effekte zu Fehlinterpretationen kommen kann \cite{berger_test-_2012}.
+
+        Ein verbreiteter kostengünstiger Farbkameratypus ist die 1-Chip-Kamera.
+        Wie der Name schon vermuten lässt, wird zur Bildaufnahme nur ein Sensor benötigt.
+        Die jeweiligen \ac{rgb}-Farbkanäle werden durch ein spezielles Farbfiltergitter auf den Pixeln, dem Bayer-Filter-Array, aus dem von dem \ac{uut} reflektierten Licht herausgefiltert.
+        Um die höhere Lichtempfindlichkeit des menschlichen Auges gegenüber grünem Licht in die Bildaufnahme einfließen zu lassen, liegen die Pixel in einem 1R:2G:1B Verhältnis vor.
+        Das Verfahren, um aus diesen Subpixeln den eigentlichen Farbwert zu berechnen, wird als Bayer-Demosaicing bezeichnet.
+        Beim Bayer-Demosaicing werden die benachbarten Pixel zur Berechnung des Zwischenwertes herangezogen.
+        Unter Umständen führt dies allerdings zu einer drastischen Reduzierung der Ortsauflösung (nur noch $\frac{1}{4}$ der ursprünglichen Auflösung), da dann nur eines dieser Subpixel das Licht eines Merkmales empfängt.
+        Da die farbliche Abdeckung durch das veränderte Subpixelverhältnis nun verändert ist, zeigt sich ein Artefakteproblem, das der Auswertungsalgorithmus nur unzuverlässig deuten kann. \cite{berger_test-_2012}
+
+        Als Alternative werden in den \ac{aoi}-Systemen 3-Chip-Kameras verwendet.
+        Hierbei werden, zur Elimination der Farbartefakte bei einer hohen Ortsauflösung, drei separate \ac{sw}-Bildsensoren genutzt, die das Bild für einen Farbkanal des \ac{rgb}-Farbraums ablichten.
+        Dabei sorgt ein Prisma für die korrekte Aufteilung des Lichtes in die Grundfarben Rot, Grün und Blau und leitet diese Farben an den jeweiligen Bildsensor.
+        Durch diese Aufteilung behält man die hohe Ortsauflösung bei, da die Ablichtung im jeweiligen \ac{rgb}-Farbkanal für den jeweiligen Sensor in \acl{sw} erfolgt. 
+        Durch die dreifache Ablichtung pro Bildpunkt werden somit auch die Farbartefakte vermieden. \cite{berger_test-_2012}
+        Da für den jeweiligen Farbkanal nun die Intensität der Pixel als Wert vorliegt, erfolgt die Rekonstruktion der Farbinformationen durch das Zusammenfügen der jeweiligen Farbwerte zu einem 3-Tupel (\ac{rgb}-Farbwerte) pro Pixel.
+        3-Chip-Kameras sind aufgrund der dreifachen Hardwareausführung teuerer als 1-Chip Lösungen und benötigen mehr Einbauplatz, da zusätzlich zu dem Prisma noch Korrekturoptiken zur Optimierung des Lichtdurchgangs verwendet werden müssen \cite{berger_test-_2012}.
+
+        Kostengünstiger und platzsparender, unter Beibehaltung der hohen Ortsauflösung, ist die sequentielle Ablichtung des Prüfobjektes durch eine einzelne \acl{sw}-1-Chip-Kamera.
+        Hierbei werden die Informationen über die Farbkanäle nicht anhand einer direkten Aufspaltung des Lichtes erreicht, sondern man macht sich die Absorption und Reflexion des sequentiell ausgestrahlten, unterschiedlich farbigen Lichtes zu nutzen.
+        Hieraus erhält man, ähnlich wie bei den 3-Chip-Kameras, durch eine Wertezusammensetzung, den jeweiligen Pixelfarbwert. \cite{berger_test-_2012}
+        Das Prüfobjekt darf sich allerdings während der Ablichtung und Zusammensetzung nicht bewegen, da das Bild sonst verschmiert.
+        
+        Da die Bildqualität nicht nur wesentlich durch die Kameraeigenschaften beeinflusst wird, sondern die Optik im Vorfeld das eingestrahlte Licht der Leiterkarte verändert, bevor es zur Detektion auf die Bildpunkte des Sensors trifft, ist die Optik im Vorfeld für eine hohe Bildqualität hauptzuständig.
+        Aufgrund der nicht-idealen Eigenschaften der Optik kommt es bei der Übersetzung des Objektpunktes zu einem Bildpunkt zu Fehlern, die sich als \glqq Fleck\grqq\@ bemerkbar machen. \cite{berger_test-_2012}
+
+        Die Auflösung, die optische Verzerrung, sowie die Güte der Optik zählen zu den ausschlaggebensten Eigenschaften, die die Bildqualität bestimmen und zur Fleckenminimierung zu optimieren sind \cite{berger_test-_2012}. 
+        Diese sollen nun im Folgenden besprochen werden: 
+
+        \begin{enumerate}
+            \item \textbf{Auflösung:} Für die letzendlich zu erreichende Auflösung ist die Betrachtung der Parameter einer Optik wichtig, die für die Abbildungsgröße des Merkmales verantwortlich sind \cite{berger_test-_2012}.
+            \item \textbf{Verzerrung:} Die Verzerrung setzt sich aus der perspektivischen Ansicht und dem möglichen erreichbaren Schärfentiefenbereich zusammen. Da bei der Betrachtung des \ac{uut} das Sichtfeld der Optik vollständig bedeckt ist und der Auswertungsalgorithmus unter gleichbleibenden Inspektionsbedingungen die zuverlässigsten Ergebnisse liefert, muss das \ac{uut}, unabhängig der Lage und Position, immer gleich abgebildet werden. Daher darf die Betrachtungsperspektive nur geringfügige Auswirkungen auf das Prüflingsbild haben. Der Schärfentiefebereich
+            \item \textbf{Güte:}
+        \end{enumerate} 
+
+        Verzeichnung (Perspektivität, Schärfentiefebereich); Güte (optische Fehler, Beugungsfehler)
+        \cite{berger_test-_2012}
+
+        \minisec{Anforderungen an die Softwarekomponenten}
