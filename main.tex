@@ -14,8 +14,8 @@
     \usepackage[printonlyused, withpage]{acronym} % Paket zur Verwaltung und Erzeugung von Abkürzungen. printonlyused: Zeige nur im Dokument benutzte Abkürzungen in dem Abkürzungsverzeichnis an | footnote: Zeigt die Bedeutung der Abkürzung in der Fußzeile an | withpage: Zeigt die Seitenzahl an, wo die Abkürzung zum ersten Mal verwendet wird
     \usepackage[backend = biber, defernumbers = false, style = ieee, citestyle = ieee, dashed = false]{biblatex} % Paket um die Literaturverwaltung zu ermöglichen. backend = biber: Benutzer das backend Programm biber, das die Bibliography ausliest und verarbeitet | defernumbers = false: Deaktiviere eine alternative Aufzählung, die bei der Gliederung der Literatur in Literaturarten verwendet werden muss | style und citestyle: Verwende den IEEE-Zitationsstil | dashed = false: Deaktiviert das Hinzufügen von ----- bei einer Autorendoppellung
     \usepackage[babel, german = quotes]{csquotes} % Paket, das eine direkte Zitierung möglich macht.
-    % \usepackage[hidelinks]{hyperref} % Fügt Hyperlinks (ohne Box) zum Dokument hinzu (Literatur schnell finden).
-    \usepackage{hyperref} % Fügt Hyperlinks zum Dokument hinzu (Literatur schnell finden).
+    \usepackage[hidelinks]{hyperref} % Fügt Hyperlinks (ohne Box) zum Dokument hinzu (Literatur schnell finden).
+    % \usepackage{hyperref} % Fügt Hyperlinks zum Dokument hinzu (Literatur schnell finden).
     \usepackage{booktabs} % Das Paket wird hier zum Hinzufügen von Linien in Tabellen/Matrizen verwendet.
     \usepackage{tocloft} % Paket zur Modifikation der Table of Contents, List of Figures und List of Tables.
     \usepackage{xcolor}
@@ -24,46 +24,46 @@
 %----------------------------- Prototypisches -----------------------------%
     % Kennzeichnungsbefehle
         % Anmerkungen kennzeichnen
-            \definecolor{annotation}{RGB}{0, 192, 223}
-            \newcommand{\annot}[1]{\textcolor{annotation}{\textsc{\#T:}} \textbf{#1}}
+            % \definecolor{annotation}{RGB}{0, 192, 223}
+            % \newcommand{\annot}[1]{\textcolor{annotation}{\textsc{\#T:}} \textbf{#1}}
 
-            % \definecolor{annotation}{RGB}{255, 255, 255}
-            % \newcommand{\annot}[1]{\textcolor{annotation}{#1}}
+            \definecolor{annotation}{RGB}{255, 255, 255}
+            \newcommand{\annot}[1]{\textcolor{annotation}{#1}}
 
         % Anmerkung bearbeitet
-            \definecolor{annotationdone}{RGB}{0, 192, 0}
-            \newcommand{\annotdone}[1]{\textcolor{annotationdone}{\textsc{\#TD:}} \textbf{#1}}
+            % \definecolor{annotationdone}{RGB}{0, 192, 0}
+            % \newcommand{\annotdone}[1]{\textcolor{annotationdone}{\textsc{\#TD:}} \textbf{#1}}
 
-            % \definecolor{annotationdone}{RGB}{255, 255, 255}
-            % \newcommand{\annotdone}[1]{\textcolor{annotationdone}{#1}
+            \definecolor{annotationdone}{RGB}{255, 255, 255}
+            \newcommand{\annotdone}[1]{\textcolor{annotationdone}{#1}}
             
         % Fehlendes Zitat
-            \definecolor{citneeded}{RGB}{255, 0, 127}
-            \newcommand{\citneeded}[1]{\textcolor{citneeded}{\textsc{\#ZF:}} \textbf{#1}}      
+            % \definecolor{citneeded}{RGB}{255, 0, 127}
+            % \newcommand{\citneeded}[1]{\textcolor{citneeded}{\textsc{\#ZF:}} \textbf{#1}}      
 
-            % \definecolor{citneeded}{RGB}{255, 255, 255}
-            % \newcommand{\citneeded}[1]{\textcolor{citneeded}{#1}} 
+            \definecolor{citneeded}{RGB}{255, 255, 255}
+            \newcommand{\citneeded}[1]{\textcolor{citneeded}{#1}} 
 
         % Fehlende Referenz
-            \definecolor{refneeded}{RGB}{255, 0, 127}
-            \newcommand{\refneeded}[1]{\textcolor{refneeded}{\textsc{\#RF:}} \textbf{#1}}
+            % \definecolor{refneeded}{RGB}{255, 0, 127}
+            % \newcommand{\refneeded}[1]{\textcolor{refneeded}{\textsc{\#RF:}} \textbf{#1}}
 
-            % \definecolor{refneeded}{RGB}{255, 255, 255}
-            % \newcommand{\refneeded}[1]{\textcolor{refneeded}{#1}}
+            \definecolor{refneeded}{RGB}{255, 255, 255}
+            \newcommand{\refneeded}[1]{\textcolor{refneeded}{#1}}
 
         % Debug Markierung
-            \definecolor{dbg1}{RGB}{255, 127, 0}
-            \newcommand{\dbg}[1]{\textcolor{dbg1}{\textsc{\#D:}} \textbf{#1}}
+            % \definecolor{dbg1}{RGB}{255, 127, 0}
+            % \newcommand{\dbg}[1]{\textcolor{dbg1}{\textsc{\#D:}} \textbf{#1}}
 
-            % \definecolor{dbg1}{RGB}{255, 255, 255}
-            % \newcommand{\dbg}[1]{\textcolor{dbg1}{#1}}
+            \definecolor{dbg1}{RGB}{255, 255, 255}
+            \newcommand{\dbg}[1]{\textcolor{dbg1}{#1}}
         
         % Bin-mir-unsicher-Markierung
-            \definecolor{notsure}{RGB}{255, 64, 0}
-            \newcommand{\notsure}[1]{\textcolor{notsure}{\textit{#1}}}
+            % \definecolor{notsure}{RGB}{255, 64, 0}
+            % \newcommand{\notsure}[1]{\textcolor{notsure}{\textit{#1}}}
 
-            % \definecolor{notsure}{RGB}{255, 255, 255}
-            % \newcommand{\notsure}[1]{\textcolor{notsure}{\textsc{#1}}}
+            \definecolor{notsure}{RGB}{255, 255, 255}
+            \newcommand{\notsure}[1]{\textcolor{notsure}{\textsc{#1}}}
 %----------------------------- Prototypisches -----------------------------%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Längen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -136,7 +136,7 @@
         \input{Kapitel/Deckblatt/Deckblatt.tex}
 
     % Abstract
-        \input{Kapitel/Abstract/Abstract.tex}
+        % \input{Kapitel/Abstract/Abstract.tex}
 
     \newpage
     
@@ -245,7 +245,9 @@
                 \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Manuelle Optische Inspektion/Manuelle Optische Inspektion.tex}
 
             % Automatische Optische Inspektion
-                \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Automatische Optische Inspektion/Automatische Optische Inspektion.tex}
+                % \input{Kapitel/Prüfverfahren in der Elektronikfertigung/Optische Prüfverfahren/Automatische Optische Inspektion/Automatische Optische Inspektion.tex}
+                \subsubsection{Automatische Optische Inspektion}
+                    Nicht verfügbar.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
     \newpage
@@ -257,7 +259,7 @@
     \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%% Eidesstattliche Versicherung %%%%%%%%%%%%%%%%%%%%%%%
-    \input{Kapitel/Eidesstattliche Versicherung/Eidesstattliche Versicherung.tex}
+    % \input{Kapitel/Eidesstattliche Versicherung/Eidesstattliche Versicherung.tex}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------- Prototypisches -----------------------------%
@@ -265,10 +267,10 @@
         % \input{Prototypisches/GrobeGliederung/GrobeGliederung.tex}
 
     % Weitere Gliederung
-        \input{Prototypisches/WeitereGliederung/WeitereGliederung.tex}
+        % \input{Prototypisches/WeitereGliederung/WeitereGliederung.tex}
 
     % To-Do-Liste
-        \input{Prototypisches/ToDo/ToDo.tex}
+        % \input{Prototypisches/ToDo/ToDo.tex}
 
     % Testseite
         % \input{Prototypisches/Testseite/Testseite.tex}
